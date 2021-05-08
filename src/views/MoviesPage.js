@@ -51,27 +51,26 @@ class MoviesPage extends Component {
             const response = await axios
             .get(`https://api.themoviedb.org/3/search/movie?api_key=${Apikey}&query=${this.state.query}`,)
             .catch(console.log)
-            console.log(response)
             this.setState({movies: response.data.results});
             
         }
       }
 
-    componentDidUpdate(prevProps, prevState){
-            if(prevState.query !== this.state.query){
-                this.fetchMovies();
-            }
+      componentDidUpdate(prevProps, prevState){
+        if(prevState.query !== this.state.query){
+            this.fetchMovies();
         }
-
-
-    async fetchMovies(){
-        const {query} = this.state;
-        const response = await axios
-                .get(`https://api.themoviedb.org/3/search/movie?api_key=${Apikey}&query=${query}`)
-                .catch(console.log)
-                this.setState({movies: response.data.results})
-                console.log(response);
     }
+
+
+        async fetchMovies(){
+            const {query} = this.state;
+            const response = await axios
+                    .get(`https://api.themoviedb.org/3/search/movie?api_key=${Apikey}&query=${query}`)
+                    .catch(console.log)
+                    this.setState({movies: response.data.results})
+                    console.log(response);
+        }
 
     onChangeQuery = query => {
         this.setState({

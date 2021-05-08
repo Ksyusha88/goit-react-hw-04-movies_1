@@ -1,9 +1,10 @@
 import { Component } from "react";
+import "./style.scss";
 
 
 class Searchbar extends Component {
     state = {
-        query: " ",
+        query: "",
     };
 
 handleChange = e => {
@@ -13,20 +14,21 @@ handleChange = e => {
 
 hendleSubmit = e => {
     e.preventDefault();
-    this.props.onSubmit(this.state.guery);
+    this.props.onSubmit(this.state.query);
     this.setState({query: ""})
 };
 
 
 render(){
     return (
-        <header>
-            <form onSubmit ={this.hendleSubmit}>
-                <button type="submit">
-                    <span>Search</span>
+        <header className="Searchbar">
+            <form onSubmit ={this.hendleSubmit} className="SearchForm">
+                <button type="submit" className="SearchForm_button">
+                    <span className="SearchForm_button_label">Search</span>
                 </button>
 
                 <input
+                    className="SearchForm_input"
                     type="text"
                     onChange ={this.handleChange}
                     value ={this.state.query}

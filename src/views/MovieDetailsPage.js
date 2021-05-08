@@ -33,8 +33,8 @@ async componentDidMount(){
         const baseUrl = 'https://image.tmdb.org/t/p/w500';
         const { match } = this.props;
         return(
-        <>
-            <button type ='button' onClick={() => this.props.history.push('/')}>Go Bac</button>
+            <div className="detailMovies">
+            <button type ='submit' className="buttonBack" onClick={() => this.props.history.push('/')}>Go Back</button>
             <img
                         src={baseUrl + poster_path}
                         alt={title}
@@ -79,7 +79,7 @@ async componentDidMount(){
               return id === movieId ? <Reviews {...props} /> : null;
             }}
           />
-        </>
+        </div>
         );
     }
 }

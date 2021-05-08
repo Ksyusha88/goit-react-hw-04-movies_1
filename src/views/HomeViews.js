@@ -22,17 +22,25 @@ render(){
     const baseUrl = 'https://image.tmdb.org/t/p/w500';
         return(
             <>
-         <h1>Trending today</h1>
+         <h1 className="Heading"><span>Trending today</span></h1>
             <ul className="ImageGallery">
             {movies.map(movie =>(
-                <Link to={`/movies/${movie.id}`}>
-                <li key={movie.id}>
+                <Link 
+                to={{
+                    pathname: `/movies/${movie.id}`,
+                    state: {
+                        from: this.props.location,
+                        search: `${this.props.query}`,
+                    },
+                }}>
+                <li key={movie.id} className ="ImageGalleryItem">
                     <img
                         src={baseUrl + movie.poster_path}
                         alt={movie.title}
                         width = "250"
+                        className = "ImageGalleryItem_image"
                     />
-                    <h2>{movie.title}</h2>
+                    <h2 className="MovieTitle">{movie.title}</h2>
                     <span role="img" aria-label="star">
                   ⭐️ <span>{movie.vote_average}</span>
                 </span>

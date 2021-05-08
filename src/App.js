@@ -5,9 +5,12 @@ import MoviesPage from './views/MoviesPage';
 import NotFound from './views/NotFoundViews';
 import MovieDetailsPage from './views/MovieDetailsPage';
 
+
+
+
 const App =() => (
   <>
-<ul>
+<ul className="topnav">
   <li>
     <NavLink 
     exact
